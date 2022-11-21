@@ -3,9 +3,7 @@ import Component from '../core/Component.js';
 export default class WinningNumber extends Component {
   template() {
     const { ticketCount } = this.state;
-    const $form = this.$target.querySelector(
-      'form[data-cy="winning-number-form"]',
-    );
+    const $form = this.$target.querySelector('form[data-cy="winning-number-form"]');
     $form.innerHTML =
       ticketCount > 0
         ? `
@@ -62,8 +60,7 @@ export default class WinningNumber extends Component {
   }
 
   init() {
-    this.templateHTML =
-      '<form class="mt-9" data-cy="winning-number-form"></form>';
+    this.templateHTML = '<form class="mt-9" data-cy="winning-number-form"></form>';
     this.$target.innerHTML = `${this.$target.innerHTML}${this.templateHTML}`;
   }
 

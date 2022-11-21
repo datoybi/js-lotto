@@ -8,12 +8,11 @@ export default class PurchaseTickets extends Component {
   }
 
   setEvent() {
-    const handleToggleShowNumbers = event => {
+    this.$target.addEventListener('change', event => {
       if (event.target.type === 'checkbox') {
         this.toggleShowNumbers();
       }
-    };
-    this.$target.addEventListener('change', handleToggleShowNumbers);
+    });
   }
 
   template() {
@@ -45,9 +44,9 @@ export default class PurchaseTickets extends Component {
               `<div class='lotto-conatiner'><span class="mx-1 text-4xl" data-cy="ticket-icon">🎟️ </span>
 							${
                 isNumberVisible === true
-                  ? `<span class="lotto-detail" data-cy='lotto-numbers'>${tickets[
-                      index
-                    ].join(', ')}</span>`
+                  ? `<span class="lotto-detail" data-cy='lotto-numbers'>${tickets[index].join(
+                      ', ',
+                    )}</span>`
                   : ''
               }</div>`,
           )

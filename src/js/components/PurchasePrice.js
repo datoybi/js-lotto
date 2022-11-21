@@ -8,29 +8,15 @@ export default class PurchasePrice extends Component {
   }
 
   setEvent() {
-    const handleOnSubmit = event => {
+    this.$target.addEventListener('submit', event => {
       event.preventDefault();
-      const inputValue = this.$target.querySelector(
+      const { value: inputValue } = this.$target.querySelector(
         'input[data-cy="purchase-price-input"]',
-      ).value;
+      );
       const purchasePrice = Number(inputValue);
 
-      if (this.validatePrice(purchasePrice)) {
-        this.issueTicket(purchasePrice);
-      }
-    };
-
-    this.$target.addEventListener('submit', handleOnSubmit);
-  }
-
-  validatePrice(price) {
-    let flag = false;
-    try {
-      flag = checkUnitOfPrice(price);
-    } catch (error) {
-      alert(error.message);
-    }
-    return flag;
+      if (checkUnitOfPrice(purchasePrice)) this.issueTicket(purchasePrice);
+    });
   }
 
   template() {

@@ -1,4 +1,4 @@
-import { checkInitialState } from '../utils/validate.js';
+// import { checkInitialState } from '../utils/validate.js';
 
 export default class Component {
   constructor(
@@ -11,7 +11,8 @@ export default class Component {
     },
   ) {
     this.$target = $target;
-    this.state = checkInitialState(state);
+    // this.state = checkInitialState(state);
+    this.state = state;
     this.init();
     this.render();
     this.setEvent();

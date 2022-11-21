@@ -9,3 +9,10 @@ export const ERROR_MESSAGES = {
   EXCEED_PRICE: `로또 구입 금액은 ${MAX_PRICE}을 넘지 않아야 합니다.`,
   CANNOT_NEGATIVE_PRICE: '로또 구입 금액은 양수여야 합니다.',
 };
+
+export const INITIAL_STATE = {
+  purchasePrice: 0,
+  ticketCount: 0,
+  tickets: [],
+  isNumberVisible: false,
+};

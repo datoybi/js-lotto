@@ -24,10 +24,7 @@ export default class App extends Component {
       this.state,
       this.toggleShowNumbers.bind(this),
     );
-    this.winningNumber = new WinningNumber(
-      this.$target.querySelector('#target'),
-      this.state,
-    );
+    this.winningNumber = new WinningNumber(this.$target.querySelector('#target'), this.state);
   }
 
   setState(newState) {
@@ -44,8 +41,7 @@ export default class App extends Component {
     const set = new Set();
     while (set.size < LOTTO_COUNT) {
       const value = Math.floor(
-        Math.random() * (LOTTO_MAX_NUMBER - LOTTO_MIN_NUMBER + 1) +
-          LOTTO_MIN_NUMBER,
+        Math.random() * (LOTTO_MAX_NUMBER - LOTTO_MIN_NUMBER + 1) + LOTTO_MIN_NUMBER,
       );
       set.add(value);
     }
