@@ -87,7 +87,7 @@ export default class WinningResult extends HTMLElement {
     return name === FIVE_BONUS ? '5개 + 보너스볼' : `${name}개`;
   }
 
-  getResultElement() {
+  getResultHTML() {
     const { winningScore } = store.getState();
     return Object.entries(PRIZE_STANDARD)
       .sort((a, b) => a[1] - b[1])
@@ -112,7 +112,7 @@ export default class WinningResult extends HTMLElement {
     }
 
     const $tbody = this.shadow.querySelector('table tbody');
-    $tbody.innerHTML = this.getResultElement();
+    $tbody.innerHTML = this.getResultHTML();
     const $profit = this.shadow.querySelector('span[data-cy="profit-rate"]');
     $profit.innerHTML = profit;
     $modal.classList.add('open');

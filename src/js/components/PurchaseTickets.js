@@ -26,10 +26,10 @@ export default class PurchaseTickets extends HTMLElement {
     this.setEvent();
   }
 
-  getTicketElement(ticketCount) {
+  getTicketHTML(ticketCount) {
     return new Array(ticketCount)
       .fill('')
-      .map((element, index) => `<purchase-ticket index="${index}"></purchase-ticket>`)
+      .map((_, index) => `<purchase-ticket index="${index}"></purchase-ticket>`)
       .join('');
   }
 
@@ -68,9 +68,9 @@ export default class PurchaseTickets extends HTMLElement {
 
     const $total = this.shadow.querySelector('span[data-cy="total-purchase"]');
     $total.innerHTML = ticketCount;
-    const ticketElements = this.getTicketElement(ticketCount);
+    const ticketHTML = this.getTicketHTML(ticketCount);
     const $tickets = this.shadow.querySelector('.tickets');
-    $tickets.innerHTML = ticketElements;
+    $tickets.innerHTML = ticketHTML;
   }
 }
 

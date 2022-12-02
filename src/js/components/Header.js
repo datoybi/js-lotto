@@ -13,7 +13,6 @@ export default class Header extends HTMLElement {
     this.template.innerHTML = `
 		<link rel="stylesheet" href="./src/css/index.css" />
 		<h1 class="text-center">🎱 행운의 로또</h1>`;
-
     this.shadow.appendChild(this.template.content.cloneNode(true));
   }
 }

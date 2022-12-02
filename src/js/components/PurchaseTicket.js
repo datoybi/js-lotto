@@ -17,7 +17,7 @@ export default class PurchaseTicket extends HTMLElement {
     this.render();
   }
 
-  getDetailElements() {
+  getLottoDetailHTML() {
     const { isNumberVisible, tickets } = store.getState();
     const index = Number(this.getAttribute('index'));
 
@@ -38,8 +38,8 @@ export default class PurchaseTicket extends HTMLElement {
   render() {
     if (this.shadow.innerHTML === '') this.init();
     const $tickets = this.shadow.querySelector('.lotto-details');
-    const lottoDetailElements = this.getDetailElements();
-    $tickets.innerHTML = lottoDetailElements;
+    const lottoDetailHTML = this.getLottoDetailHTML();
+    $tickets.innerHTML = lottoDetailHTML;
   }
 }
 
